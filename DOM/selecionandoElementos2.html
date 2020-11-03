@@ -10,7 +10,29 @@
     <div>Segundo</div>
     <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
     <script>              
-        // ...
+        /* Trabalhando com as funções querySelector() e querySelectorAll() */
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        const selecionar = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque')) /* Retorna um NodeList */
+        const deselecionar = seletor => document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+        /* Passando seletores diferentes para a funcao querySelector */
+        selecionar('div')
+        deselecionar('*')
+
+        selecionar('.terceiro.ultimo') /* Nesse caso o elemento necessita possuir as duas classes ao mesmo tempo para ser selecionado  */
+        deselecionar('*')
+
+        selecionar(':not(#primeiro)') /* Pegara os outros elementos menos o elementos de id="primeiro" */
+        deselecionar('*')
+
+        selecionar(':nth-child(1)') /* Selecionara p primeiro filho */
+        deselecionar('*')
+
+        selecionar('div:nth-of-type(1)') /* Selecionara o primeiro filho do tipo definido no inicio (div) */
+        deselecionar('*')
+
+        selecionar('[wb-attrib]') /* Seleciona o elemento que possui o atributo personalizado definido */
     </script>
 </body>
 </html>
