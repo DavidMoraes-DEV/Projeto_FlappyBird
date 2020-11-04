@@ -22,7 +22,41 @@
         <p>Fim</p>
     </div>
     <script>
-        // ...
+        // Navegando dentro da DOM
+        // Funcao para facilitar o comando: "console.log"
+        function log() {
+            console.log(this)
+        }
+
+        //Atribuindo essa funcao para os seguintes prototype:
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log() /* Acessa a div pai do elemento(lista) Essa funcao .log somente estara disponivel se realizar o procedimento acima */
+        
+        //Array do tipo NodeList:
+        lista.childNodes.log() /* Retorna um NodeList em formato de array, e inclui os espaços em branco do código como texto (para evitar isso e necessario apagar todos os espaços em branco(Enter's) das linhas de código entre as tags) */
+
+        const primeiro = lista.firstChild /* Retorna o primeiro filho do elemento(lista), nesse caso como foi utilizado o  */
+        primeiro.log()
+        primeiro.nextSibling.log() /* Retorna o "irmao" do primeiro elemento, ou seja o elemento seguinte */
+
+        const ultimo = lista.lastChild /*Retorna o ultimo elemento filho da constante especificada */
+        ultimo.log()
+        ultimo.previousSibling.log() /* Retorna o penultimo irmao do elemento filho da constante */
+
+        //Array do tipo HTMLColecction:
+        lista.children.log() /* Essa propriedade retorna um HTMLCollection em formato de array e nao um NodeList, ignora os espaços em branco das linhas de código e pega apenas os elementos */
+        lista.firstElementChild.log() /* Retorna o primeiro elemento(tag) filho de lista (Obs. Agora em formato HTMLCollection) */
+
+        lista.lastElementChild.log() /* Retorna o ultimo elemento(tag) filho de lista */
+        lista.parentNode.previousElementSibling.log() /* Retorna a tag anterior do elemento */
+        lista.parentNode.nextElementSibling.log() /* Retorna a proxima tag definida apartir do local do elemento(lista) */
+
+        document.querySelectorAll('div ul li').log() /* O mais recomendado */
     </script>
 </body>
 
