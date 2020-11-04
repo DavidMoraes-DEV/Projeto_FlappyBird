@@ -9,13 +9,34 @@
 
 <body class='conteudo exercicio'>
     <div>
-        <a href='https://www.cod3r.com.br'>Cod3r</a>
+        <a href='https://www.google.com'>Google</a>
     </div>
     <div id='primeiro'>
-        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+        <img src='./imgs/Logo.png' alt='logo'>
     </div>
     <script>
-        // ...
+        const img = document.querySelector('img')
+        console.log('getAttribute', img.getAttribute('src')) /* getAttribute e uma das formas de acessar atributos, acessando um atributo apartir de uma string */
+        console.log('src', img.src) /* Acessando o atributo de src diretamente pelo nome da tag */
+        console.log('["src"]', img['src']) /* Acessando o valor de atributos utilizando os [] */
+        console.log('alt', img.alt) /* Acessando o atributo pelo "alt" */
+
+        console.log('Elemento "img"............')
+        console.log('NodeType', img.nodeType) /* nesse caso o nodeType retornara o valor "1", entao ele e um elemento, noteType 2 quer dizer que e atributo e etc... (Site para ver os outros valores do nodeType: https://www.w3schools.com/jsref/prop_node_nodetype.asp) */
+        console.log('NodeName', img.nodeName) /* O nodeName acessa qual e o nome daquele elemento(atributo) acessado */
+        
+        const src = img.getAttributeNode('src') /* Retorna um 'nó' que representa aquele atributo */
+        console.log("Atributo 'src'................")
+        console.log('NodeType', src.nodeType)
+        console.log('NodeName', src.nodeName)
+        console.log('NodeValue', src.nodeValue)
+
+        const link = document.querySelector('a')
+        console.log('Elemento "a"................')
+        console.log('href', link.href)
+        console.log('firstChild.nodeType', link.firstChild.nodeType)
+        link.firstChild.nodeValue = 'GOOGLE'
+
     </script>
 </body>
 
