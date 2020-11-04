@@ -16,7 +16,19 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('#compras')
+
+        /* Forma de acessar os elementos na forma "somente leitura", nao conseguira alterar os valores do elemento apartir somente do ".Attributes" */
+        console.log(lista.attributes)
+
+        console.log(lista.attributes[0]) /* Acessando um atributo apartir do indice */
+        console.log(lista.attributes.id) /* Acessando um atributo apartir da notacao ponto(.) */
+
+        console.log(lista.attributes[1]) /* Acessando um atributo apartir do indice */
+        console.log(lista.attributes.destino) /* Acessando um atributo apartir da notacao ponto(.) */
+        
+        console.log(lista.attributes[2]) /* Acessando uma propriedade personalizada apartir do indice */
+        console.log(lista.attributes['data-urgencia']) /* Acessando uma propriedade personalizada apartir "de Attributes[]" */
     </script>
 </body>
 
