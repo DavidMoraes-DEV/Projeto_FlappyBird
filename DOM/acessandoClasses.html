@@ -12,7 +12,27 @@
         Classes
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div')
+        const classes = div.classList
+
+        classes.add('destaque') /* Adiciona uma classe a um elemento */
+        classes.remove('destaque') /* Remove uma classe de um elemento */
+        classes.toggle('destaque') /* A funcao .toggle realiza a alternancia da classe, sendo que, se ele existir no elemento o toggle remove essa classe, se nao existir ele adiciona a classe */
+        console.log(classes.contains('destaque'))
+        console.log(classes.length)
+        classes.toggle("destaque")
+        console.log(classes.length)
+
+        classes.add('destaque1')
+        classes.add('destaque2')
+        console.log(classes.length)
+
+        /* E possivel ainda definir um laco for e um forEach para percorrer cada uma das classes contidas dentro do elemento */
+        for (let c of classes) {
+            console.log(c)
+        }
+
+        classes.forEach(c => console.log(c))
     </script>
 </body>
 
