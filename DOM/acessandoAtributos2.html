@@ -17,7 +17,26 @@
         </ul>
     </div>
     <script>
-        // ...
+        const lista = document.querySelector('div ul[destino="escritório"]')
+        console.log('Elemento "ul"................')
+        console.log('childNodes', lista.childNodes) /* Ira retornar um array do tipo NodeList*/
+        console.log('destino', lista.destino) /* No caso de uma propriedade personalizada nao sera possivel acessa-lo pelo notacao ponto(.) o resultado sera "undefined" */
+        console.log('getAttribute', lista.getAttribute('destino')) /* No caso do getAttribute ele considera propriedades personalizados sendo entao possivel acessa-los pelo nome */
+        console.log('hasAttribute', lista.hasAttribute('destino')) /* Verifica se o atributo esta ou nao presente no determinado elemento retornando veradeiro ou falso */
+        
+        lista.setAttribute('destino', 'empresa') /* Altera o valor contido dentro do elemento atravez da funcao "setAttribute" */
+        lista.setAttribute('status', 'aberto') /* Com a mesma funcao e possivel tambem adicionar novos atributos ao elemento */
+        lista.removeAttribute('destino') /* Remove um atributo do elemento atravez da funcao removeAttribute */
+
+        console.log(lista.dataset.urgercia) /* No caso de propriedades personalizadas com o prefixo "data-" ao acessa-la pela notacao ponto e necessario apenas colocar o nome da propriedade sem o prefixo */
+        lista.dataset.urgencia = 4
+        console.log(lista.getAttribute('data-urgencia'))
+
+        //cuidado
+        const label = document.querySelector('label')
+        console.log(label.for)
+        console.log(label.htmlFor) /* Utilizando a notacao ponto e necessario utilizar o htmlFor para conseguir acessa-lo */
+        console.log(label.getAttribute('for')) /* propriedades personalizadas somente e possivel acessa-las pelo "getAttribute()" */
     </script>
 </body>
 
