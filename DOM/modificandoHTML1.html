@@ -9,7 +9,33 @@
 
 <body class='conteudo exercicio'>
     <script>
-        // ...
+        const body = document.querySelector('body')
+
+        const div1 = document.createElement('div') /* Cria um elemento (nesse caso uma tag div) */
+        div1.classList.add('destaque') /* Adiciona uma classe para a div criada*/
+        div1.innerHTML = 'Primeiro' /* Adiciona o conteudo para essa div */
+
+        const div2 = document.createElement('div')
+        div2.setAttribute('Atributo', 'valor')
+        div2.innerHTML = 'Segundo'
+
+        const p = document.createElement('p')
+        p.innerHTML = 'Terceiro'
+
+        const div3 = document.createElement('div')
+        div3.appendChild(p) /* Adiciona o elemento('p') dentro da 'div3' */
+
+        body.appendChild(div1) /* Adiciona a 'div1' dentro da tag 'body' do html */
+        body.appendChild(div2)
+        body.appendChild(div3) /* Adiciona a 'div3' e seus 'filhos' dentro da tag 'body' do html */
+
+        const texto = document.createTextNode('Antes..') /* Cria um nó de textos */
+        div3.insertBefore(texto, div3.childNodes[0]) /* Ele insere um elemento filho(texto) exatamente na posicao que for definida(div3.childNodes[0]) */
+
+        const div4 = div3.cloneNode(true) /* Cria um clone do elemento, sendo que, se passar o valor true ele ira clonar o elemento e seu filhos se tiver, se passar falso ele clonara apenas o elemento pai e nao incluira os filhos da tag */
+        
+        body.appendChild(div4) /* Adiciona a 'div4' e seus 'filhos' dentro da tag 'body' do html */
+        body.removeChild(div3) /* Remove o filho definido */
     </script>
 </body>
 
