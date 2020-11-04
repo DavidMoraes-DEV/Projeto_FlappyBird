@@ -12,7 +12,17 @@
         <p>Texto Inicial</p>
     </div>
     <script>
-        // ...
+        const div = document.querySelector('div')
+        div.innerHTML = 'Texto Alterado' /* O innerHTML substitui tudo que estiver dentro da tag que chamou essa funcao (nesse caso da div) pelo valor definido, podendo substituir ate as tags dentro dela */
+        /*div.outerHTML = 'Texto Alterado' O outerHTML substitui além de tudo que estiver dentro da tag que chamou a funcao mais substitui ate a propria tag que chamou a funcao pelo valor definido */
+        div.insertAdjacentHTML('beforebegin', '<p>Antes Inicio</p>') /* O insertAdjacentHTML insere um determinado elemento(Nesse caso um paragrafo(<p>)), sendo que "beforebegin" ira inserir antes da tag que chamou essa funcao */
+        div.insertAdjacentHTML('afterbegin', '<p>Depois Inicio</p>') /* No caso do "afterbegin", fara com que o 'insertAdjacentHTML' insira um determinado elemento dentro da tag definida, inserindo no comeco do corpo da tag */
+        div.insertAdjacentHTML('beforeend', '<p>Antes Fim</p>') /* Com "beforeend" fara com que o insertAdjacentHTML insira um elemento dentro da tag definida, inserindo no final do corpo da tag */
+        div.insertAdjacentHTML('afterend', '<p>Depois Fim</p>') /* Ja com o "afterend" ira inserir um elemento depois do fim da tag (fora do corpo da tag) */
+
+        /* Somente texto (sem tag) */
+        console.log(div.innerText) /* Utilizando a innerText e possivel obter apenas o texto(conteudo) sem o nome da tag incluida */
+        
     </script>
 </body>
 
