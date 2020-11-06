@@ -10,6 +10,23 @@
 <body class="conteudo exercicio">
     <div>Elemento</div>
     <script>
-        // ...
+        const item = document.querySelector('div')
+        item.style.position = 'absolute'
+
+        item.onmousemove = e => {
+            /* Sendo 'e' o evento recebido, 'e.target' e quem disparou o evento*/
+            const item = e.target
+            
+            /* O item.style.cursor = 'move' abilita a opicao do mouse de mover um item na pagina */
+            item.style.cursor = 'move'
+
+            /* O (evento)e.buttons é uma propriedade que altera o valor para diferente de 0 quanto estiver com o mouse clicado que na estrutura if dará verdadeiro */
+            if (e.buttons) {
+                /* Possiblita mecher o elemento no eixo Y da pagina */
+                item.style.top = `${e.clientY - (item.clientHeight / 2)}px`
+                /* Possibilita mexer o elemento no eixo X da pagina */
+                item.style.left = `${e.clientX - (item.clientWidth / 2)}px`
+            }
+        }
     </script>
 </body>
