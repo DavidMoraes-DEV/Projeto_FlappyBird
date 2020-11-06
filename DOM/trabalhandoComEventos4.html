@@ -28,9 +28,24 @@
                 <option value="pt-br">Português (Brasil)</option>
                 <option value="en-us">Inglês (Americano)</option>
             </select>
-        <button wm-submit>Pesquisar</button>
+        <button dm-submit>Pesquisar</button>
     </form>
     <script>
-        // ...
+        const submit = document.querySelector('[dm-submit]')
+        /* Interceptando o evento do click e trabalhando com esse evento no formulario */
+        submit.onclick = function(e) {
+            e.preventDefault()
+
+            const form = e.target.parentNode /* Pega o parente(parentNode) proximo do elemento que disparou o evento(e.target) que nesse caso do formulario eh o botao e o parente proximo desse elemento e o formulario que esta envolvendo esse elemento que disparou o evento */
+            const formData = new FormData(form) /* Nesse caso obtem os dados do formulario utilizando o "new FormData(form)" */
+            formData.append('ajax', true) /* E possivel agora adicionar uma nova informacao no formulario que nao tinha originalmente no "formData" */
+
+            console.log(formData.get('q')) /* E possivel tambem verificar um determinado valor */
+            console.log(formData.has('hl')) /* Verificar um determinado campo se ele esta contido */
+
+            for (let dado of formData) {
+                console.log(dado)
+            }
+        }
     </script>
 </body>
