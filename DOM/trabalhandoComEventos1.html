@@ -9,9 +9,26 @@
 
 <body class="conteudo exercicio">
     <div>
-        <a href="https://google.com.br">Google</a>
+        <a espera-um-pouco href="https://google.com.br">Google</a> <!-- E possivel colocar o onclick="navegarEm5s(event)" dentro da tag <a> para que seja possivel iniciar a funcao --> 
     </div>
     <script>
-        // ...
+        /* Funcao para interceptar a acao do click para chamar uma funcao: */
+        function navegarEm5s(e) {
+            /* Previne que o comportamento padrao do click ocorra, sendo que o comportamento padrao do click e automaticamente carregar a pagina de destino do click */
+            e.preventDefault() 
+            console.log('Saindo em 5s...')
+            setTimeout(() => {
+                /* .target e o elemento html que disparou o evento, sendo que, se clicar em um link por exemplo o "e.target" e o proprio link */
+                const link = e.target
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        /*const a = document.querySelector('a')
+        a.onclick = navegarEm5s - Tambem e possivel chamar a funcao dessa forma, porem seu comportamente ficara mais implicito */
+
+        /* Maneira mais recomendada para chamar a funcao, atraves de uma propriedade personalizada, pois o browser nao le propriedades personalizadas e para quem esta programando fica mais evidente que ali o javaScript ira executar algum código para o link */
+        const a = document.querySelector('[espera-um-pouco]') 
+        a.onclick = navegarEm5s
     </script>
 </body>
